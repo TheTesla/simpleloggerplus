@@ -8,7 +8,7 @@
 #######################################################################
 
 
-from deepops import passwordFilter
+from .deepops import passwordFilter
 import logging
 import traceback
 import re
