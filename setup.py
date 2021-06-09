@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
 import setuptools
+import simleloggerplus
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="simpleloggerplus",
-    version="0.0.2",
+    version=simpleloggerplus.__version__,
     author="Stefan Helmert",
     author_email="stefan.helmert@t-online.de",
     description="A simple, easy to use logging tool",
