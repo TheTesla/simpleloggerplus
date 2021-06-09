@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import setuptools
-import simleloggerplus
+import simpleloggerplus
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
