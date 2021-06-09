@@ -25,6 +25,19 @@ ch.setFormatter(formatter)
 if 1 > len(logger.handlers):
     logger.addHandler(ch)
 
+
+
+relogger = logging.getLogger('relog')
+relogger.setLevel(logging.INFO)
+reformatter = logging.Formatter('%(message)s')
+rech = logging.StreamHandler()
+rech.setFormatter(reformatter)
+if 1 > len(relogger.handlers):
+    relogger.addHandler(rech)
+
+def relog(msg):
+    relogger.info(msg)
+
 def log(msg, options = ['showlocation']):
     if 'notfilterpassword' not in options:
         msg = passwordFilter(msg)
@@ -32,7 +45,7 @@ def log(msg, options = ['showlocation']):
         trc = traceback.extract_stack()
         return '{}/{}()/{}:    {}'.format(trc[-3][0], trc[-3][2], re.search('[^\(]*\((.*)\)', trc[-3][3]).group(1), msg)
     else:
-        return msg 
+        return msg
 
 def debug(msg, options = ['showlocation']):
     logger.debug(log(msg, options))
